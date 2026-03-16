@@ -33,6 +33,13 @@ void display_student(struct student_record student)
 {
     // TODO: Implement this function to display student information
     // Format: Name, ID, individual marks, and average mark
+    printf("%s, %i, ",student.name,student.id);
+    for(int i=0;i<NUM_MODULES;i++)
+    {
+        printf("%i, ");
+    }
+    float avg=calculate_average(student);
+    printf("%f\n",avg);
 }
 
 /*
