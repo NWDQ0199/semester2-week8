@@ -32,7 +32,8 @@ void print_image_values(PGMImage* image);
 PGMImage* invert_image_colors(PGMImage* original_image);
 //unsigned char **rotate_image(unsigned char **original_image, int height, int width, int degrees);
 PGMImage* rotate_image(PGMImage* original_image,int degrees);
-int save_pgm_image(const char *filename, unsigned char **pixels, int height, int width, int max_gray);
+//int save_pgm_image(const char *filename, unsigned char **pixels, int height, int width, int max_gray);
+int save_pgm_image(const char* filename, PGMImage* image);
 int get_user_menu_choice(const char *message);
 void display_menu(void);
 
@@ -720,9 +721,12 @@ PGMImage* rotate_image(PGMImage* original_image,int degrees)
  * @param max_gray Maximum gray value
  * @return int 1 if successful, 0 if failed
  */
-int save_pgm_image(const char* filename, unsigned char** pixels, int height, int width, int max_gray)
+int save_pgm_image(const char* filename, PGMImage* image)
 {
-    /* TODO: Refactor this to use your PGMImage structure */
+	int height=image->height;
+	int width=image->width;
+	int max_grey=image->maxGrey;
+    // TODO: Refactor this to use your PGMImage structure
     FILE* file=fopen(filename,"w");
     if(file==NULL)
 	{
@@ -730,12 +734,41 @@ int save_pgm_image(const char* filename, unsigned char** pixels, int height, int
         return 0;
     }
     
-    /* Write PGM header */
+    // Write PGM header
+    fprintf(file, "P2\n");
+    fprintf(file, "%d %d\n", width, height);
+    fprintf(file, "%d\n", max_grey);
+    
+    /* Write pixel values */
+    for(int i=0;i<height;i++)
+	{
+        for(int j=0;j<width;j++)
+		{
+            fprintf(file,"%d ",image->pixels[i][j]);
+        }
+        fprintf(file,"\n");
+    }
+    
+    fclose(file);
+    return 1;
+}
+
+/*int save_pgm_image(const char* filename, unsigned char** pixels, int height, int width, int max_gray)
+{
+    // TODO: Refactor this to use your PGMImage structure
+    FILE* file=fopen(filename,"w");
+    if(file==NULL)
+	{
+        printf("Error: Could not create output file %s\n",filename);
+        return 0;
+    }
+    
+    // Write PGM header
     fprintf(file, "P2\n");
     fprintf(file, "%d %d\n", width, height);
     fprintf(file, "%d\n", max_gray);
     
-    /* Write pixel values */
+    // Write pixel values
     for(int i=0;i<height;i++)
 	{
         for(int j=0;j<width;j++)
@@ -747,4 +780,4 @@ int save_pgm_image(const char* filename, unsigned char** pixels, int height, int
     
     fclose(file);
     return 1;
-}
+}*/
