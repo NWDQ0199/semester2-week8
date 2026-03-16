@@ -1,7 +1,6 @@
-
 #include <stdio.h>
-#include "points.h"
 #include <math.h>
+#include "points.h"
 
 int main(void)
 {
