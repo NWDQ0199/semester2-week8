@@ -12,8 +12,10 @@ Point;
 
 typedef struct _rectangle
 {
-	Point point; //bottom left corner
     // fields
+	Point point; //bottom left corner
+	float width;
+	float height;
 }
 Rectangle;
 
