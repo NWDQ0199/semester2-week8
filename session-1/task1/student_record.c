@@ -25,7 +25,7 @@ float calculate_average(Student student)
 	{
 		total+=student.marks[i];
 	}
-	return total; // Placeholder return value
+	return total/(float)NUM_MODULES; // Placeholder return value
 }
 
 /**
