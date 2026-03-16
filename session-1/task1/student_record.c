@@ -20,8 +20,12 @@ float calculate_average(struct student_record student)
 {
 	// TODO: Implement this function to calculate and return the average
 	// of the three module marks
-	
-	return 0.0; // Placeholder return value
+	float total=0;
+	for(int i=0;i<NUM_MODULES;i++)
+	{
+		total+=student.marks[i];
+	}
+	return total; // Placeholder return value
 }
 
 /**
@@ -54,7 +58,11 @@ int main(void)
 	strcpy(student.name,"John Smith");
 	student.id=12345;
 	float marks[NUM_MODULES]={75.0f,68.5f,81.0f};
-	student.marks=marks;
+	for(int i=0;i<NUM_MODULES;i++)
+	{
+		//because apparently you can't assign an array in C for some reason
+		student.marks[i]=marks[i];
+	}
 	
 	// TODO: display the student data and average mark
 	
