@@ -156,7 +156,7 @@ int main(int argc, char** argv)
 			case 4: /* Quit */
 				printf("Exiting program...\n");
 				/* Free the original image memory before exiting */
-				free_image_array(image_pixels);
+				free_image_array(image);
 				return 0;
             
 			default:
@@ -282,6 +282,12 @@ void free_image_array(PGMImage* image)
 {
     //TODO: Refactor this to use your PGMImage structure
     if(image==NULL) return;
+	if(image->pixels==NULL)
+	{
+		//if the image isn't null but the array is
+		//free(image); //not sure if this should be freed
+		return;
+	}
 
     for(int i=0;i<image->height;i++)
 	{
