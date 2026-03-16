@@ -18,10 +18,10 @@
  */
 float calculate_average(struct student_record student)
 {
-    // TODO: Implement this function to calculate and return the average
-    // of the three module marks
-    
-    return 0.0; // Placeholder return value
+	// TODO: Implement this function to calculate and return the average
+	// of the three module marks
+	
+	return 0.0; // Placeholder return value
 }
 
 /**
@@ -31,15 +31,15 @@ float calculate_average(struct student_record student)
  */
 void display_student(struct student_record student)
 {
-    // TODO: Implement this function to display student information
-    // Format: Name, ID, individual marks, and average mark
-    printf("%s, %i, ",student.name,student.id);
-    for(int i=0;i<NUM_MODULES;i++)
-    {
-        printf("%i, ");
-    }
-    float avg=calculate_average(student);
-    printf("%f\n",avg);
+	// TODO: Implement this function to display student information
+	// Format: Name, ID, individual marks, and average mark
+	printf("%s, %i, ",student.name,student.id);
+	for(int i=0;i<NUM_MODULES;i++)
+	{
+		printf("%lf, ",student.marks[i]);
+	}
+	float avg=calculate_average(student);
+	printf("%f\n",avg);
 }
 
 /*
@@ -47,15 +47,16 @@ void display_student(struct student_record student)
  */
 int main(void)
 {
-    // TODO: Create and initialise a student variable with sample data
-    // Example: name = "John Smith", id = 12345, marks = {75.0, 68.5, 81.0}
-    
-    struct student_record student;
-    student.name="John Smith";
-    student.id=12345;
-    student.marks={75.0,68.5,81.0};
-    
-    // TODO: display the student data and average mark
-    
-    return 0;
+	// TODO: Create and initialise a student variable with sample data
+	// Example: name = "John Smith", id = 12345, marks = {75.0, 68.5, 81.0}
+	
+	struct student_record student;
+	strcpy(student.name,"John Smith");
+	student.id=12345;
+	float marks[NUM_MODULES]={75.0f,68.5f,81.0f};
+	student.marks=marks;
+	
+	// TODO: display the student data and average mark
+	
+	return 0;
 }
