@@ -1,11 +1,15 @@
 
 // define the structure here 
 
-typedef struct _point {
+typedef struct _point
+{
+	float x;
+	float y;
     // your code
-} Point;
+}
+Point;
 
 // state function headers here
 
-float distance( Point p, Point q );
+float distance(Point p, Point q);
 
