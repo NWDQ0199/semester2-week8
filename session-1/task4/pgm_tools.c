@@ -65,7 +65,7 @@ int main(int argc, char** argv)
     int choice=-1;
     char output_filename[100];
     int rotation_degrees;
-    unsigned char** processed_image=NULL;
+    PGMImage* processed_image=NULL;
 
     // Main program loop
     while(1)
