@@ -1,4 +1,3 @@
-
 float calculate_average(Student student);
 void display_student(Student student);
 void update_name(Student *student, const char *new_name);
