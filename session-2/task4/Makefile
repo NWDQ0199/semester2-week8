@@ -1,13 +1,18 @@
+OBJS=obj/student.o obj/main.o
+TARGET=bin/student
+INCLUDE=include/student.h include/structure.h
 
-student: student.o main.o
-	gcc student.o main.o -o student
+student: $(OBJS)
+	gcc $(OBJS) -o $(TARGET)
 
-main.o: main.c student.h structure.h
-	gcc -c main.c
+obj/main.o: src/main.c $(INCLUDE)
+	gcc -c src/main.c 
+	mv main.o obj/main.o
 
-student.o: student.c student.h structure.h
-	gcc -c student.c
+obj/student.o: src/student.c $(INCLUDE)
+	gcc -c src/student.c
+	mv student.o obj/student.o
 
 clean:
-	rm student.o main.o student
+	rm obj/student.o obj/main.o $(TARGET)
 	
