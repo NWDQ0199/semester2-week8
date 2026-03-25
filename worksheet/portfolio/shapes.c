@@ -56,7 +56,7 @@ float triangleArea(Triangle t)
 
 bool samePoint(Point p1, Point p2)
 {
-    return abs(lineLength(makeLine(p1,p2)))<1.0e-6;
+    return fabs(lineLength(makeLine(p1,p2)))<1.0e-6;
 }
 
 bool pointInLine(Point p, Line l)
@@ -71,5 +71,5 @@ bool pointInTriangle(Point p, Triangle t)
 
 bool sameFloat(float a, float b)
 {
-	return abs(a-b)<1.0e-6;
+	return fabs(a-b)<1.0e-6;
 }
