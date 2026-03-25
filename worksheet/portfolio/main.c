@@ -30,8 +30,8 @@ void testLine(void)
 	Point p2=makePoint(2.f,1.f);
 	Line l=makeLine(p1,p2);
 	float length=lineLength(l);
-	printf("|l|=%f",length);
-	printf("testLine: %s",sameFloat(length,1.f)?"pass":"fail");
+	printf("|l|=%f\n",length);
+	printf("testLine: %s\n",sameFloat(length,1.f)?"pass":"fail");
 }
 
 void testTriangle(void)
@@ -42,12 +42,12 @@ void testTriangle(void)
 	Point p3=makePoint(0.f,1.f);
 	Triangle t=makeTriangle(p1,p2,p3);
 	float area=triangleArea(t);
-	printf("area(t)=%f",area);
-	printf("testTriangle (a): %s",sameFloat(area,0.5f)?"pass":"fail");
+	printf("area(t)=%f\n",area);
+	printf("testTriangle (a): %s\n",sameFloat(area,0.5f)?"pass":"fail");
 
 	//a point (1,1) is not part of the previous triangle (false/0)
 	Point p4=makePoint(1.f,1.f);
-	printf("testTriangle (b): %s",pointInTriangle(p4,t)?"fail":"pass");
+	printf("testTriangle (b): %s\n",pointInTriangle(p4,t)?"fail":"pass");
 }
 
 void testLine2(void)
@@ -57,6 +57,5 @@ void testLine2(void)
 	Point p2=makePoint(2.f,2.f);
 	Line l=makeLine(p1,p2);
 	Point p3=makePoint(2.f,2.f);
-	printf("testLine2: %s",pointInLine(p3,l)?"pass":"fail");
+	printf("testLine2: %s\n",pointInLine(p3,l)?"pass":"fail");
 }
-
