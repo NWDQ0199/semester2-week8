@@ -6,7 +6,7 @@ student: $(OBJS)
 	gcc $(OBJS) -o $(TARGET)
 
 obj/main.o: src/main.c $(INCLUDE)
-	gcc -c src/main.c 
+	gcc -c src/main.c
 	mv main.o obj/main.o
 
 obj/student.o: src/student.c $(INCLUDE)
